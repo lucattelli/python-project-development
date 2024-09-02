@@ -1,0 +1,65 @@
+[tool.poetry]
+name = "python-project-development"
+version = "0.1.0"
+description = "How I do Python project development"
+authors = ["Bruno Lucattelli <lucattelli@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+httpx = "^0.27.2"
+
+
+[tool.poetry.group.dev.dependencies]
+pylint = "^3.2.7"
+mypy = "^1.11.2"
+black = "^24.8.0"
+isort = "^5.13.2"
+pytest = "^8.3.2"
+pylint-pydantic = "^0.3.2"
+pytest-asyncio = "^0.24.0"
+pkginfo = "^1.11.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+# BLACK  - https://black.readthedocs.io/en/stable/usage_and_configuration
+
+[tool.black]
+line-length = 120
+target-version = ["py311"]
+quiet = "True"
+
+# ISORT - https://pycqa.github.io/isort/docs/configuration/options.html
+
+[tool.isort]
+profile = "black"
+py_version = "311"
+skip_gitignore = "True"
+line_length = 120
+multi_line_output = 3
+include_trailing_comma = "True"
+sections = ['FUTURE', 'STDLIB', 'THIRDPARTY', 'FIRSTPARTY', 'LOCALFOLDER']
+known_third_party = ['ddtrace']
+src_paths = ["packages/*/*"]
+
+# MYPY
+
+[tool.mypy]
+strict = "True"
+plugins = "pydantic.mypy"
+ignore_errors = "False"
+exclude = ['.venv']
+disallow_untyped_defs = "True"
+
+# PYLINT
+
+[tool.pylint.'MAIN']
+init-hook = "import sys; import os; sys.path.append(os.getcwd());"
+
+[tool.pylint.'FORMAT']
+max-line-length = 120
+
+[tool.pylint.'MESSAGES CONTROL']
+disable = ['missing-module-docstring', 'missing-class-docstring', 'missing-function-docstring']

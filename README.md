@@ -2,6 +2,15 @@
 
 This is how I do Python development today.
 
+## Tools
+
+- `black` formatting source files
+- `isort` to organize imports
+- `mypy` static type checking
+- `pylint` linting errors
+- `poetry` for package management
+- `pyproject.toml` centralizes all tooling config
+
 ## Prerequisites
 
 To run this, you first need to install these tools:
@@ -83,3 +92,16 @@ Note: if you clone this repository and open with VSCode, the `.vscode/extensions
     "python.testing.unittestEnabled": false
 }
 ```
+
+## Checking Formatting, Linting and Type-checking for the entire project
+
+https://github.com/user-attachments/assets/7a04bd96-0027-4aac-8f1c-2b4b1fe049b5
+
+## Linting and Type Checking on Save
+
+https://github.com/user-attachments/assets/d18370c2-9823-49fa-813e-a988c96e19e9
+
+## Format, Organize Imports on Save
+
+https://github.com/user-attachments/assets/6b6370ba-49b1-47b8-94cc-7011d0ad020f
+
